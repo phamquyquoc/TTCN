@@ -1,0 +1,2 @@
+Hello Jonny, how are you ?
+Params là {name: ‘Jonny’}
