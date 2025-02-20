@@ -144,6 +144,7 @@ function replaceParams(content, params) {
 }
 
 function processTemplate(inputFile, outputFile, params) {
+    //Đọc nội dung file
     fs.readFile(inputFile, 'utf8', (err, data) => {
         if (err) {
             console.error(" Lỗi khi đọc file:", err);
@@ -151,7 +152,7 @@ function processTemplate(inputFile, outputFile, params) {
         }
 
         const updatedContent = replaceParams(data, params);
-
+        //Ghi nội dung file mới vào out put
         fs.writeFile(outputFile, updatedContent, 'utf8', (err) => {
             if (err) {
                 console.error(" Lỗi khi ghi file:", err);
@@ -166,6 +167,10 @@ const inputPath = 'C:\\Users\\LENOVO\\Desktop\\BTjs\\ex\\TemplateString.txt'; //
 const outputPath = path.join(__dirname, 'output.txt'); // Đường dẫn file mới
 
 const params = { name: 'Jonny' };
-
 processTemplate(inputPath, outputPath, params);
 
+
+const inputPath2 = 'C:\\Users\\LENOVO\\Desktop\\BTjs\\ex\\TemplateString.html'; // (Dùng đường dẫn tuyệt đối)
+const outputPath2 = path.join(__dirname, 'output.html'); // Đường dẫn file mới
+const params2 = { title: 'Search of skill', pageTitle: 'Home page', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, consectetur' };
+processTemplate(inputPath2, outputPath2, params2);
